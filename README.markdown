@@ -7,8 +7,7 @@ creates your own Maven repository on Github.
 Add the following to `project/plugins.sbt`.
 
     resolvers ++= Seq(
-      "jgit-repo" at "http://download.eclipse.org/jgit/maven",
-      "hexx-releases" at "http://fuzion24.github.io/maven/releases"
+      "fuzion24-releases" at "http://fuzion24.github.io/maven/releases"
     )
 
     addSbtPlugin("com.github.hexx" % "sbt-github-repo" % "0.1.0")
@@ -20,9 +19,9 @@ add the following to `build.sbt`.
 
     seq(githubRepoSettings: _*)
 
-    localRepo := Path.userHome / "github" / "repo
+    localRepo := Path.userHome / "github" / "maven"
 
-    githubRepo := "git@github.com:fuzion24/repo.git"
+    githubRepo := "git@github.com:fuzion24/maven.git"
 
 Run `sbt publish-to-github-repo` to publish your artifacts.
 
@@ -30,4 +29,4 @@ Run `sbt publish-to-github-repo` to publish your artifacts.
 
 Users of your artifacts have to add the following to `resolvers`.
 
-    resolvers += "hexx-releases" at "http://fuzion24.github.io/maven/releases"
+    resolvers += "fuzion24-releases" at "http://fuzion24.github.io/maven/releases"
